@@ -1,0 +1,161 @@
+:root {
+  --bg: #f7f7f8;
+  --text: #222;
+  --primary: #1976d2;
+  --primary-contrast: #fff;
+  --danger: #d32f2f;
+  --border: #ddd;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  background: var(--primary);
+  color: var(--primary-contrast);
+  padding: 12px 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+main {
+  padding: 16px;
+}
+
+/* Toolbar wspólny */
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.toolbar-left, .toolbar-right {
+  display: flex;
+  gap: 8px;
+}
+
+.toolbar-center {
+  text-align: center;
+  font-weight: 600;
+}
+
+.toolbar button.active {
+  background: var(--primary);
+  color: var(--primary-contrast);
+}
+
+button {
+  border: none;
+  background: #eee;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button.primary {
+  background: var(--primary);
+  color: var(--primary-contrast);
+}
+
+button.danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+/* Siatka 4 kolumn z kalendarzami */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.cal-col {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 260px;
+}
+
+.cal-header {
+  background: #fafafa;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  font-weight: 600;
+}
+
+.calendar {
+  padding: 6px;
+}
+
+#calendar {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid var(--border);
+}
+
+.field {
+  margin-bottom: 12px;
+}
+
+.field label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.field input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.hint {
+  font-size: 12px;
+  color: #666;
+  margin-top:

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rezerwacja ładowarek - Warszawa Inflancka</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Rezerwacja ładowarek - Warszawa Inflancka</h1>
+  </header>
+
+  <main>
+    <!-- Wspólny pasek nawigacji -->
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <button id="prevBtn">« Poprzedni</button>
+        <button id="todayBtn">Dziś</button>
+        <button id="nextBtn">Następny »</button>
+      </div>
+      <div class="toolbar-center">
+        <span id="titleEl"></span>
+      </div>
+      <div class="toolbar-right">
+        <button id="dayBtn">Dzień</button>
+        <button id="weekBtn" class="active">Tydzień</button>
+      </div>
+    </div>
+
+    <!-- Siatka 4 kolumn (po jednym kalendarzu na ładowarkę) -->
+    <div class="cal-grid">
+      <div class="cal-col">
+        <div class="cal-header">Ładowarka 1</div>
+        <div id="cal-1" class="calendar"></div>
+      </div>
+      <div class="cal-col">
+        <div class="cal-header">Ładowarka 2</div>
+        <div id="cal-2" class="calendar"></div>
+      </div>
+      <div class="cal-col">
+        <div class="cal-header">Ładowarka 3</div>
+        <div id="cal-3" class="calendar"></div>
+      </div>
+      <div class="cal-col">
+        <div class="cal-header">Ładowarka 4</div>
+        <div id="cal-4" class="calendar"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal rezerwacji -->
+  <div class="modal" id="reservationModal" aria-hidden="true">
+    <div class="modal-content">
+      <h2>Nowa rezerwacja</h2>
+      <form id="reservationForm">
+        <div class="field">
+          <label for="resName">Imię/Nazwa</label>
+          <input id="resName" name="name" type="text" placeholder="Np. Jan Kowalski" />
+        </div>
+        <div class="field">
+          <label for="resPlate">Numer rejestracyjny</label>
+          <input id="resPlate" name="plate" type="text" placeholder="Np. WX 12345" />
+        </div>
+        <div class="field">
+          <label for="resEmail">Adres e‑mail (do zarządzania rezerwacją)</label>
+          <input id="resEmail" name="email" type="email" placeholder="np. jan.kowalski@example.com" />
+          <p class="hint">Na ten adres wyślemy link do anulowania / zmiany PIN-u.</p>
+        </div>
+        <div class="field">
+          <label for="resStart">Początek</label>
+          <input id="resStart" name="start" type="datetime-local" required />
+        </div>
+        <div class="field">
+          <label for="resEnd">Koniec</label>
+          <input id="resEnd" name="end" type="datetime-local" required />
+        </div>
+
+        <div class="field">
+          <label for="resPin">Kod PIN (opcjonalnie)</label>
+          <input id="resPin" name="pin" type="password" inputmode="numeric" pattern="[0-9]*" placeholder="4–6 cyfr" />
+          <p class="hint">Jeśli pozostawisz puste, system wygeneruje PIN i pokaże go tylko raz — zapisz go.</p>
+        </div>
+
+        <!-- Preferowana ładowarka (zaznaczona kolumna) -->
+        <div class="field" id="preferredSpotInfo" style="display:none">
+          <label>Preferowana ładowarka</label>
+          <div>
+            <span id="preferredSpotText"></span>
+            <button type="button" id="clearPreferredSpot" style="margin-left:8px;">Wyczyść</button>
+          </div>
+          <p class="hint">Zaznaczyłeś zakres w kolumnie wybranej ładowarki.</p>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="primary">Zarezerwuj</button>
+          <button type="button" id="cancelModalBtn">Anuluj</button>
+        </div>
+        <p class="hint">System automatycznie przydzieli wolną ładowarkę, a jeśli wybierzesz kolumnę — spróbuje tę konkretną.</p>
+        <p class="error" id="formError" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal szczegółów -->
+  <div class="modal" id="detailsModal" aria-hidden="true">
+    <div class="modal-content">
+      <h2>Szczegóły rezerwacji</h2>
+      <div id="detailsContent"></div>
+      <div class="field">
+        <label for="deletePin">Kod PIN do usunięcia</label>
+        <input id="deletePin" type="password" inputmode="numeric" pattern="[0-9]*" placeholder="PIN rezerwacji lub PIN administratora" />
+      </div>
+      <p class="error" id="deleteError" aria-live="polite"></p>
+      <div class="actions">
+        <button type="button" id="sendManageLinkBtn">Wyślij link zarządzania na e‑mail</button>
+        <button type="button" id="deleteReservationBtn" class="danger">Usuń rezerwację</button>
+        <button type="button" id="closeDetailsBtn">Zamknij</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "53f5b6db-3fbb-4204-a758-c352bf2d7ec9",
+    "name": "Bartłomiej Jórczak",
+    "plate": "xxx",
+    "start": "2026-05-18T04:30:00.000Z",
+    "end": "2026-05-18T05:00:00.000Z",
+    "chargerNumber": 1,
+    "createdAt": "2026-05-22T12:16:39.975Z",
+    "pinSalt": "9cdd7a43ed8886d97cd03ed3e5cf3e46",
+    "pinHash": "473049d664daeecd01748d33c5605b1a204ef654d32f30bfb50a3eb298238fce1ca6931ad2d0abd84a4cbdc8ef86f94db9e331028101e199a4b7e23e42a89cf4",
+    "email": "bartlomiej.jorczak@edenred.com",
+    "magicTokens": [
+      {
+        "id": "27d9cc56-41b5-4715-a7cb-94c94ac9766c",
+        "salt": "b1405a467939f2b6b0b2d22a348c8274",
+        "hash": "1c6672bb8353970761861fdfc17d1d83a6ab083e3bd4313e1175a3149de1bde5996c7c8810ad14d83103ad39158754637dbc02fa28da2cad0a3545bce96f58a7",
+        "scope": "manage",
+        "createdAt": "2026-05-22T12:16:47.014Z",
+        "expiresAt": "2026-05-22T13:16:47.014Z",
+        "usedAt": null,
+        "singleUse": false
+      }
+    ]
+  }
+]

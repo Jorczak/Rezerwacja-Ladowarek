@@ -1,0 +1,15 @@
+{
+  "name": "rezerwacja-ladowarek-inflancka",
+  "version": "1.0.0",
+  "description": "Rezerwacja ładowarek - Warszawa Inflancka (4 kolumny, PIN, link e-mail)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.13",
+    "uuid": "^9.0.1"
+  }
+}
